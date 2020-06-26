@@ -1,8 +1,5 @@
 package com.bucares.barcode.model;
 
-import java.util.List;
-import java.util.Set;
-
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

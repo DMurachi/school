@@ -1,4 +1,4 @@
-package com.bucares.boilerplate.controller;
+package com.bucares.barcode.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,8 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import static com.bucares.boilerplate.URLConstants.APP_VERSION_URL;
-import static com.bucares.boilerplate.URLConstants.HEALTH_ENDPOINT_URL;
+import static com.bucares.barcode.URLConstants.APP_VERSION_URL;
+import static com.bucares.barcode.URLConstants.HEALTH_ENDPOINT_URL;
 
 @Controller
 public class AppController {

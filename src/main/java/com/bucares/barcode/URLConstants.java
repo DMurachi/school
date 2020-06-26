@@ -1,4 +1,4 @@
-package com.bucares.boilerplate;
+package com.bucares.barcode;
 
 public class URLConstants {
     public static final String HEALTH_ENDPOINT_URL = "/health";

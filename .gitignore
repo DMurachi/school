@@ -1,0 +1,12 @@
+/target/
+.classpath
+.project
+.settings/
+.idea
+*.iml
+*.DS_Store*
+/test-report.xml
+node_modules
+.factorypath
+.vscode/
+@log.file@*

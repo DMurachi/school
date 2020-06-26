@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.bucares.barcode.model.Product;
 import com.bucares.barcode.repository.ProductRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +13,6 @@ public class ProductService {
 
   @Autowired
   private ProductRepository productRepository;
-
-  private static final Logger logger = LoggerFactory.getLogger(ProductService.class);
 
   public Product storeProduct(Product product) {
     return productRepository.save(product);
