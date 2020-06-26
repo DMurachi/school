@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.bucares.barcode.model.Product;
 import com.bucares.barcode.service.ProductService;
@@ -27,7 +28,7 @@ public class ProductController {
 
   private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
-  @GetMapping("/api/product")
+  @GetMapping(value = "/product")
   public ResponseEntity<Response<List<Product>>> getAllProducts() {
     logger.info("Called resource: getAllProducts");
 
@@ -52,8 +53,9 @@ public class ProductController {
   }
 
   @PostMapping(value = "/product")
-  public ResponseEntity<Response<Product>> createProduct(@Valid Product product) {
+  public ResponseEntity<Response<Product>> createProduct(@Valid @RequestBody Product product) {
     logger.info("Called resource: createProduct");
+    logger.info("{}", product.getName());
 
     productService.storeProduct(product);
 
