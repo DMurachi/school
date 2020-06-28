@@ -2,6 +2,7 @@ package com.bucares.barcode.controller;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +12,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.bucares.barcode.model.Product;
+import com.bucares.barcode.service.ProductService;
 
 import static com.bucares.barcode.URLConstants.APP_VERSION_URL;
 import static com.bucares.barcode.URLConstants.HEALTH_ENDPOINT_URL;
@@ -20,12 +26,18 @@ public class AppController {
 
     private static final Logger logger = LoggerFactory.getLogger(AppController.class);
 
+    @Autowired
+    private ProductService productService;
+
     @Value("${build.version}")
     private String buildVersion;
 
     @GetMapping("/")
-    public String index() {
-        return "index";
+    public ModelAndView index() {
+        ModelAndView model = new ModelAndView();
+        model.addObject("products", productService.getAllProducts());
+        model.setViewName("index");
+        return model;
     }
 
     @GetMapping(HEALTH_ENDPOINT_URL)
