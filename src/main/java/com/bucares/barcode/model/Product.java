@@ -28,10 +28,10 @@ public class Product {
   @Column(nullable = false)
   private String name;
 
-  @Column
+  @Column(columnDefinition = "TEXT")
   private String ingredients;
 
-  @Column
+  @Column(columnDefinition = "TEXT")
   private String categories;
 
   @Column
