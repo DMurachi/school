@@ -57,7 +57,16 @@ public class ProductController {
     logger.info("Called resource: createProduct");
     logger.info("{}", product.getName());
 
-    productService.storeProduct(product);
+    Product oldProduct = productService.getProductByBarcode(product.getBarcode());
+    if (oldProduct != null) {
+      oldProduct.setName(product.getName());
+      oldProduct.setIngredients(product.getIngredients());
+      oldProduct.setCategories(product.getCategories());
+      oldProduct.setQuantity(product.getQuantity());
+      productService.storeProduct(oldProduct);
+    } else {
+      productService.storeProduct(product);
+    }
 
     Response<Product> response = new Response<>("0000", product, null);
 
