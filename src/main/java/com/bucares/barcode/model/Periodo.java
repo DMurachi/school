@@ -18,10 +18,6 @@ public class Periodo {
     private String name;
     private Date dateInicio;
     private Date dateFinal;
-    @OneToMany
-    private List<Seccion> seccion;
-    @OneToMany
-    private List<Estudiante> estudiante; 
     
     public Periodo(){}
     

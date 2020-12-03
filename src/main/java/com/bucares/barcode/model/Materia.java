@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -18,9 +19,6 @@ public class Materia {
     private Long id;
     @Column
     private String name;
-
-    @OneToMany
-    private List<Avance> avance;
 
     public Materia() {
         super();

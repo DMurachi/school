@@ -15,9 +15,6 @@ public class Avance {
     @Column
     private float nota;
 
-    @ManyToOne
-    private Materia materia;
-
     public Avance(){ super(); }
 
     public float getNota() {
