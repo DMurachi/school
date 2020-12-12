@@ -19,20 +19,26 @@ public class Seccion {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "seccion", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "seccion",cascade = CascadeType.MERGE)
     private List<Estudiante> estudiante;
-    
-    public Seccion(){super();}
+   
+    public Seccion(){/**/}
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }/*
+    public List<Estudiante> getEstudiante(){
+        return this.estudiante;
     }
-
-    public Seccion(String name) {
+    public void setEstudiante(List<Estudiante> estudiante){
+        this.estudiante = estudiante;
+    }*/
+    public Seccion(String name, List<Estudiante> estudiantes) {
         this.name = name;
+        this.estudiante = estudiantes;
     }
      
 }

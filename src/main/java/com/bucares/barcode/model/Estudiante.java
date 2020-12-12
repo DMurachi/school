@@ -1,5 +1,8 @@
 package com.bucares.barcode.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name = "estudiante")
@@ -21,11 +26,20 @@ public class Estudiante {
     private String lastname;
     @Column(length = 11)
     private String telefono;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne
     @JoinColumn(name = "seccion_id", nullable = false)
     private Seccion seccion;
+    @OneToOne
+    private Notas nota;
 
-    public Estudiante(){ super(); }
+    public Estudiante(){ /**/ }
+    /*
+    public Seccion getSeccion(){
+        return seccion;
+    }
+    public void setSeccion(Seccion seccion){
+        this.seccion = seccion;
+    }*/
     public Long getId(){
         return id;
     }

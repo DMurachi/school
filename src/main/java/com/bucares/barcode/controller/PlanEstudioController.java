@@ -58,7 +58,7 @@ public class PlanEstudioController {
     try{
         PlanEstudio persistentPlanEstudio = new PlanEstudio();
         if(planEstudio != null){
-            persistentPlanEstudio.setMaterias(planEstudio.getMaterias());
+            persistentPlanEstudio.setMateria(planEstudio.getMaterias());
             persistentPlanEstudio.setId(planEstudio.getId());
             planEstudioService.storePlanEstudio(persistentPlanEstudio);
             return new ResponseEntity<>(persistentPlanEstudio,HttpStatus.OK);

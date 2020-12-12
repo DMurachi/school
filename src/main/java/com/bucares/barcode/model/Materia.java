@@ -1,30 +1,38 @@
 package com.bucares.barcode.model;
 
+import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "materia")
-public class Materia {
+public class Materia implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column
     private String name;
+    @OneToOne(mappedBy = "materia", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Calification calification;
 
-    public Materia() {
-        super();
+    public Materia(){/** */
     }
-    public Materia(Long id, String name) {
-        this.id = id;
+    public Materia(String name) {
         this.name = name;
     }
     public Long getId() {

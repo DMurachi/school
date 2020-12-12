@@ -2,6 +2,7 @@ package com.bucares.barcode.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,17 +15,17 @@ public class PlanEstudio {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @OneToMany
-    private List<Materia> materias;
+    private List<Materia> materia;
 
     public PlanEstudio() {/* empty */
     }
 
-    public List<Materia> getMaterias() {
-        return materias;
+    public List<Materia> getMateria() {
+        return materia;
     }
 
-    public void setMaterias(List<Materia> materias) {
-        this.materias = materias;
+    public void setMateria(List<Materia> materia) {
+        this.materia = materia;
     }
 
     public Long getId() {
@@ -32,10 +33,5 @@ public class PlanEstudio {
     }
     public void setId(Long id){
         this.id=id;
-    }
-
-    public PlanEstudio(Long id, List<Materia> materias) {
-        this.id = id;
-        this.materias = materias;
     }
 }

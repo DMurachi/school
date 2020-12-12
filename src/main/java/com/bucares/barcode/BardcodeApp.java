@@ -1,9 +1,14 @@
 package com.bucares.barcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.bucares.barcode.model.Estudiante;
 import com.bucares.barcode.model.Seccion;
 import com.bucares.barcode.repository.EstudianteRepository;
 import com.bucares.barcode.repository.SeccionRepository;
+import com.bucares.barcode.service.EstudianteService;
+import com.bucares.barcode.service.SeccionService;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,20 +24,24 @@ public class BardcodeApp {
         SpringApplication.run(BardcodeApp.class, args);
     }/*
     @Bean
-    public CommandLineRunner mappingDemo(SeccionRepository seccionRepository, 
-                                         EstudianteRepository estudianteRepository) {
+    public CommandLineRunner mappingDemo(SeccionService seccionService, 
+                                         EstudianteService estudianteService) {
         return args -> {
 
+
+            // create and save new pages7
+        
+        //    estudianteRepository.save(new Estudiante("Darlin", "Lopez","012031203"));
+        //    estudianteRepository.save(new Estudiante("Derwis", "Rivas", "1231231"));
+        //    estudianteRepository.save(new Estudiante("Emmanuel", "Requena","12356236"));
+         
             // create a new book
-            Seccion seccion = new Seccion("2U");
+            List<Estudiante> estudiantes = new ArrayList<Estudiante>();
+            estudianteService.getAllEstudiante().forEach(estudiantes::add);
+            Seccion seccion = new Seccion("2U", estudiantes);
 
             // save the book
-            seccionRepository.save(seccion);
-
-            // create and save new pages
-            estudianteRepository.save(new Estudiante("John", "Lopez","012031203", seccion));
-            estudianteRepository.save(new Estudiante("Murachi", "Rivas", "1231231",seccion));
-            estudianteRepository.save(new Estudiante("Lila", "Requena","12356236", seccion));
+            seccionService.storeSeccion(seccion);
         };
     }*/
 
