@@ -29,7 +29,10 @@ public class Materia implements Serializable{
     @OneToOne(mappedBy = "materia", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Calification calification;
-
+    @ManyToOne
+    @JoinColumn(name = "plan_estudio_id",insertable = false, updatable = false)
+    private PlanEstudio planEstudio;
+    
     public Materia(){/** */
     }
     public Materia(String name) {
